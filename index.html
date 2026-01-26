@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uday Pratap Singh | Java Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Uday</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h2>Hello, I'm <span>Uday Pratap Singh</span></h2>
+    <p>Java Full Stack Developer | Microservices | Spring Boot | React.js</p>
+    <button onclick="document.getElementById('contact').scrollIntoView()">Hire Me</button>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>About <span>Me</span></h2>
+        <p class="animate">I'm <b>Uday Pratap Singh</b>, a passionate Java Full Stack Developer focused on scalable and
+          secure systems.</p>
+        <p class="animate">I work with Spring Boot, Microservices, OAuth2, JWT, API Gateway, Eureka, Feign Client & AWS.
+        </p>
+        <p class="animate">I love building cloud-ready applications using Docker, Kubernetes, CI/CD pipelines and modern
+          security.</p>
+
+        <div class="about-tags">
+          <span>Java</span><span>Spring Boot</span><span>OAuth2</span><span>Spring
+            Security</span><span>Microservices</span>
+          <span>AWS</span><span>Docker</span><span>Kubernetes</span>
+          <span>MySQL</span><span>JavaScript</span><span>React.js</span><span>GIT</span><span>Github</span>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <h3>Quick Facts</h3>
+        <ul>
+          <li>🎯 Java Full Stack Developer</li>
+          <li>🏗 Microservices Architect</li>
+          <li>🔐 Security with JWT & OAuth2</li>
+          <li>☁ AWS + Cloud Deployment</li>
+          <li>🐳 Docker & Kubernetes</li>
+          <li>🚀 Performance Focused</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="fade">
+    <h2 class="animated-heading">Projects</h2>
+    <div class="cards">
+      <div class="card animated-card">
+        <h3>Doctor Appointment System</h3>
+        <p>I built a Doctor Appointment System using microservices architecture where patients can book appointments
+          online. I secured the system using Spring Security and OAuth2, used Eureka for service discovery, API Gateway
+          for routing and authentication, Feign Client for inter-service communication, AWS S3 for profile image
+          storage, and MySQL for data persistence.</p>
+      </div>
+
+      <div class="card animated-card">
+        <h3>Weather App</h3>
+        <p>A responsive Weather Application built using React.js that provides real-time weather information based on
+          the user’s current location and also allows users to search weather details for any city worldwide.</p>
+      </div>
+
+      <div class="card animated-card">
+        <h3>Todo App</h3>
+        <p>The To-Do App helps users organize their tasks and track progress. It provides features such as adding,
+          editing, searching, completing, and deleting tasks.</p>
+      </div>
+      <div class="card animated-card">
+        <h3>Personality Development</h3>
+        <p>The Personality Development Platform is designed to support individuals in improving their communication
+          skills, confidence, mindset, and overall personality.
+          The application provides expert-curated tips and enables users to connect with mentors who can guide them in
+          their personal development journey.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US   -->
+  <section id="contact" class="fade">
+    <div class="contact-section fade">
+      <h1 class="contact-title">Contact Us</h1>
+      <p class="contact-subtitle">
+        Have any questions or need a quote? We’d love to hear from you.
+      </p>
+
+      <div class="contact-wrapper">
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <div class="info-box">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>New Delhi, India</p>
+          </div>
+
+          <div class="info-box">
+            <i class="fas fa-phone"></i>
+            <p>+91 9058185217</p>
+          </div>
+
+          <div class="info-box">
+            <i class="fas fa-envelope"></i>
+            <p>chauhanuday4321@gmail.com</p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+          </div>
+          <button class="contact-btn" type="submit">Send Message</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    /* Cards & Skill animation */
+    const cards = document.querySelectorAll('.card');
+    const skillBars = document.querySelectorAll('.skill-bar span');
+    const items = document.querySelectorAll(".fade");
+
+
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight * 0.8;
+      cards.forEach(card => {
+        if (card.getBoundingClientRect().top < trigger) {
+          card.classList.add('show');
+        }
+      });
+      skillBars.forEach(bar => {
+        if (bar.getBoundingClientRect().top < trigger) {
+          bar.style.width = bar.getAttribute('data-width');
+        }
+      });
+      items.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add("show");
+        }
+      });
+    });
+
+    /* About section animation using IntersectionObserver */
+    const aboutSection = document.querySelector("#about");
+    const aboutLines = document.querySelectorAll(".about-text .animate");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          aboutLines.forEach((line, i) => {
+            setTimeout(() => { line.classList.add("show"); }, i * 200);
+          });
+          observer.unobserve(aboutSection);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(aboutSection);
+
+
+  </script>
+
+</body>
+
+</html>
